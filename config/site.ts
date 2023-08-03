@@ -1,69 +1,45 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Next.js + NextUI",
-	description: "Make beautiful websites regardless of your design experience.",
+	name: "Math Magic",
+	description: "Pequeno jogo de Matemática.",
 	navItems: [
 		{
-			label: "Home",
+			label: "Início",
 			href: "/",
 		},
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Nível 1",
+      href: "/nivel1",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "Nível 2",
+      href: "/nivel2",
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: "Nível 3",
+      href: "/nivel3",
     },
     {
-      label: "About",
-      href: "/about",
+      label: "Nível 4",
+      href: "/nivel4",
     }
 	],
 	navMenuItems: [
 		{
-			label: "Profile",
-			href: "/profile",
+			label: "Início",
+			href: "/",
 		},
 		{
-			label: "Dashboard",
-			href: "/dashboard",
-		},
-		{
-			label: "Projects",
-			href: "/projects",
-		},
-		{
-			label: "Team",
-			href: "/team",
-		},
-		{
-			label: "Calendar",
-			href: "/calendar",
-		},
-		{
-			label: "Settings",
-			href: "/settings",
-		},
-		{
-			label: "Help & Feedback",
-			href: "/help-feedback",
-		},
-		{
-			label: "Logout",
-			href: "/logout",
+			label: "Nível 1",
+			href: "/nivel1",
 		},
 	],
 	links: {
-		github: "https://github.com/nextui-org/nextui",
-		twitter: "https://twitter.com/getnextui",
-		docs: "https://nextui-docs-v2.vercel.app",
-		discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev"
+		github: "https://github.com/leonardosimas",
+		linkedin: "https://www.linkedin.com/in/leonardo-simas-b46271a5/",
+		// docs: "https://nextui-docs-v2.vercel.app",
+		// discord: "https://discord.gg/9b6yyZKmH4",
+    // sponsor: "https://patreon.com/jrgarciadev"
 	},
 };

@@ -7,8 +7,9 @@ export default function DefaultLayout({
 }: {
 	children: React.ReactNode;
 }) {
+	const currentYear = new Date().getFullYear();
 	return (
-		<div className="relative flex flex-col h-screen">
+		<div className="relative flex flex-col h-screen bg-zinc-400">
 			<Head />
 			<Navbar />
 			<main className="container mx-auto max-w-7xl px-6 flex-grow">
@@ -21,8 +22,8 @@ export default function DefaultLayout({
 					href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
 					title="nextui.org homepage"
 				>
-					<span className="text-default-600">Powered by</span>
-					<p className="text-primary">NextUI</p>
+					<p className="text-primary">Alien Technologies</p>
+    				<div className="text-default-600">© {currentYear} All rights reserved.</div>
 				</Link>
 			</footer>
 		</div>

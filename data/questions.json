@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "question": "Quanto é 3 x 2?",
+      "answer": "6"
+    },
+    {
+      "id": 2,
+      "question": "Quanto é 20 + 15?",
+      "answer": "35"
+    },
+    {
+      "id": 3,
+      "question": "Qual o valor de x? x + 20 = 50.",
+      "answer": "30"
+    }
+  ]
+  
