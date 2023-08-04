@@ -19,11 +19,11 @@ export default function DefaultLayout({
 				<Link
 					isExternal
 					className="flex items-center gap-1 text-current"
-					href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-					title="nextui.org homepage"
+					href="https://github.com/leonardosimas"
+					title="Github Leonardo Simas"
 				>
-					<p className="text-primary">Alien Technologies</p>
-    				<div className="text-default-600">© {currentYear} All rights reserved.</div>
+					<p className="text-primary">Criado por Leonardo Simas</p>
+    				<div className="text-default-600">© {currentYear}</div>
 				</Link>
 			</footer>
 		</div>
