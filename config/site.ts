@@ -21,8 +21,8 @@ export const siteConfig = {
       href: "/nivel3",
     },
     {
-      label: "Nível 4",
-      href: "/nivel4",
+      label: "Taboada",
+      href: "/Taboada",
     }
 	],
 	navMenuItems: [
@@ -31,8 +31,8 @@ export const siteConfig = {
 			href: "/",
 		},
 		{
-			label: "Nível 1",
-			href: "/nivel1",
+			label: "Taboada",
+			href: "/Taboada",
 		},
 	],
 	links: {
