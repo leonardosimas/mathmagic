@@ -27,20 +27,26 @@ const Taboada: React.FC = () => {
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 bg-zinc-400">
         <div>
-          <h1 className="flex text-2xl font-bold mb-4 justify-center">
+          <h1 className="text-2xl font-bold mb-4 text-center">
             Tabuada de 1 a 12
           </h1>
-          <div className="grid grid-cols-6 gap-2">
+          <div className="grid grid-cols-3 gap-4">
             {Array.from({ length: 12 }, (_, index) => index + 1).map(
               (numero) => (
-                <Table aria-label={`Tabuada do ${numero}`}>
+                <Table
+                  key={numero}
+                  aria-label={`Tabuada do ${numero}`}
+                  className="max-w-md"
+                >
                   <TableHeader>
-                    <TableColumn className="flex font-bold justify-center items-center">Tabuada de {numero}</TableColumn>
+                    <TableColumn className="text-center font-bold">
+                      Tabuada de {numero}
+                    </TableColumn>
                   </TableHeader>
                   <TableBody>
                     {generateTabuada(numero).map((item) => (
                       <TableRow key={item.numero}>
-                        <TableCell className="flex font-bold justify-center justify-items-center">
+                        <TableCell className="text-center font-bold">
                           {item.tabuada} X {item.numero} = {item.resultado}
                         </TableCell>
                       </TableRow>
