@@ -1,30 +1,15 @@
-// IndexPage.tsx
-import React, { useState } from "react";
+import React from "react";
 import DefaultLayout from "@/layouts/default";
-import QuestionGame from "./QuestionGame";
-import QuestionGameResults from "../components/QuestionGameResults";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Divider,
-} from "@nextui-org/react";
-import questions from "../data/questions.json";
+import { Button, Card, CardBody, CardHeader, Divider } from "@nextui-org/react";
+import { Plus, Minus, X, Divide } from "phosphor-react";
+import { useRouter } from "next/router";
+import { Url } from "next/dist/shared/lib/router/router";
 
 export default function IndexPage() {
-  const totalQuestions = questions.length;
-  const [correctCount, setCorrectCount] = useState<number>(0);
-  const [gameStarted, setGameStarted] = useState<boolean>(false);
+  const router = useRouter();
 
-  const handleGameFinished = (correctCount: number) => {
-    setCorrectCount(correctCount);
-  };
-
-  const handleGameStart = () => {
-    setGameStarted(true);
-    setCorrectCount(0);
+  const handleGameClick = (path: Url) => {
+    router.push(path);
   };
 
   return (
@@ -35,21 +20,42 @@ export default function IndexPage() {
             JOGOS DE MATEMÁTICA
           </CardHeader>
           <Divider />
-          <CardBody>
-            {correctCount < totalQuestions ? (
-              <QuestionGame
-                totalQuestions={totalQuestions}
-                onGameFinished={handleGameFinished}
-              />
-            ) : (
-              <div>
-                <p>Parabéns! Você completou todas as perguntas.</p>
-                <QuestionGameResults
-                  correctCount={correctCount}
-                  totalQuestions={totalQuestions}
-                />
-              </div>
-            )}
+          <CardBody className="text-center">
+            <p className="font-bold mb-4">Escolha um jogo</p>
+            <div className="flex gap-2">
+              <Button
+                radius="full"
+                variant="shadow"
+                className="bg-gradient-to-tr from-green-500 to-gray-500 text-white shadow-lg text-2xl w-12 h-12"
+                onClick={() => handleGameClick("/SomarPage")}
+              >
+                <Plus size={32} />
+              </Button>
+              <Button
+                radius="full"
+                variant="shadow"
+                className="bg-gradient-to-tr from-green-500 to-gray-500 text-white shadow-lg text-2xl w-12 h-12"
+                onClick={() => handleGameClick("/DiminuirPage")}
+              >
+                <Minus size={32} />
+              </Button>
+              <Button
+                radius="full"
+                variant="shadow"
+                className="bg-gradient-to-tr from-green-500 to-gray-500 text-white shadow-lg text-2xl w-12 h-12"
+                onClick={() => handleGameClick("/MultiplicarPage")}
+              >
+                <X size={32} />
+              </Button>
+              <Button
+                radius="full"
+                variant="shadow"
+                className="bg-gradient-to-tr from-green-500 to-gray-500 text-white shadow-lg text-2xl w-12 h-12"
+                onClick={() => handleGameClick("/DividirPage")}
+              >
+                <Divide size={32} />
+              </Button>
+            </div>
           </CardBody>
         </Card>
       </section>

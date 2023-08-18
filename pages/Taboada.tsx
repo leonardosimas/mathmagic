@@ -1,4 +1,13 @@
 import DefaultLayout from "@/layouts/default";
+import {
+  Divider,
+  Table,
+  TableHeader,
+  TableBody,
+  TableColumn,
+  TableRow,
+  TableCell,
+} from "@nextui-org/react";
 import React from "react";
 
 const Taboada: React.FC = () => {
@@ -18,20 +27,26 @@ const Taboada: React.FC = () => {
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 bg-zinc-400">
         <div>
-          <h1 className="text-2xl font-bold mb-4">Tabuada de 2 a 12</h1>
+          <h1 className="flex text-2xl font-bold mb-4 justify-center">
+            Tabuada de 1 a 12
+          </h1>
           <div className="grid grid-cols-6 gap-2">
             {Array.from({ length: 12 }, (_, index) => index + 1).map(
               (numero) => (
-                <div key={numero} className="border border-gray-300 p-2">
-                  <div className="font-bold mb-2">Tabuada do {numero}</div>
-                  {generateTabuada(numero).map((item) => (
-                    <div key={item.numero} className="flex justify-center">
-                      <span>
-                        {item.tabuada} x {item.numero} = {item.resultado}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                <Table aria-label={`Tabuada do ${numero}`}>
+                  <TableHeader>
+                    <TableColumn className="flex font-bold justify-center items-center">Tabuada de {numero}</TableColumn>
+                  </TableHeader>
+                  <TableBody>
+                    {generateTabuada(numero).map((item) => (
+                      <TableRow key={item.numero}>
+                        <TableCell className="flex font-bold justify-center justify-items-center">
+                          {item.tabuada} X {item.numero} = {item.resultado}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
               )
             )}
           </div>

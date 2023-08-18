@@ -5,30 +5,42 @@ export const siteConfig = {
 	description: "Pequeno jogo de Matemática.",
 	navItems: [
 		{
-			label: "Início",
-			href: "/",
+			label: "Somar",
+			href: "/SomarPage",
 		},
-    {
-      label: "Nível 1",
-      href: "/nivel1",
-    },
-    {
-      label: "Nível 2",
-      href: "/nivel2",
-    },
-    {
-      label: "Nível 3",
-      href: "/nivel3",
-    },
-    {
-      label: "Taboada",
-      href: "/Taboada",
-    }
+		{
+			label: "Diminuir",
+			href: "/DiminuirPage",
+		},
+		{
+			label: "Multiplicar",
+			href: "/MultiplicarPage",
+		},
+		{
+			label: "Dividir",
+			href: "/DividirPage",
+		},
+		{
+			label: "Taboada",
+			href: "/Taboada",
+		}
 	],
 	navMenuItems: [
 		{
-			label: "Início",
-			href: "/",
+			label: "Somar",
+			href: "/SomarPage",
+		},
+		{
+			label: "Diminuir",
+			href: "/DiminuirPage",
+		},
+		{
+			label: "Multiplicar",
+			href: "/MultiplicarPage",
+		},
+		{
+			label: "Dividir",
+			href: "/DividirPage",
 		},
 		{
 			label: "Taboada",
@@ -40,6 +52,6 @@ export const siteConfig = {
 		linkedin: "https://www.linkedin.com/in/leonardo-simas-b46271a5/",
 		// docs: "https://nextui-docs-v2.vercel.app",
 		// discord: "https://discord.gg/9b6yyZKmH4",
-    // sponsor: "https://patreon.com/jrgarciadev"
+		// sponsor: "https://patreon.com/jrgarciadev"
 	},
 };
