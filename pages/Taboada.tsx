@@ -1,5 +1,3 @@
-// Refeita a tabela devido erro de Key Props
-
 import DefaultLayout from "@/layouts/default";
 import {
   Divider,
@@ -10,7 +8,7 @@ import {
   TableRow,
   TableCell,
 } from "@nextui-org/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Taboada: React.FC = () => {
   const generateTabuada = (numero: number) => {
@@ -25,8 +23,12 @@ const Taboada: React.FC = () => {
     return tabuada;
   };
 
-  const isMobile = window.innerWidth <= 768; // Ajuste o valor de 768 conforme necessário
+  const [isMobile, setIsMobile] = useState(false);
   const tabuadaRows = isMobile ? 3 : 6;
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 768); // Ajuste o valor de 768 conforme necessário
+  }, []);
 
   return (
     <DefaultLayout>
