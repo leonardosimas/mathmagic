@@ -83,7 +83,7 @@ export default function MultiplicarPage() {
                     radius="full"
                     variant="shadow"
                     className="bg-gradient-to-tr from-blue-500 to-gray-500 text-white shadow-lg"
-                    onClick={handleRestartGame}
+                    onPress={handleRestartGame}
                   >
                     Reiniciar Jogo
                   </Button>
@@ -103,13 +103,13 @@ export default function MultiplicarPage() {
                     onChange={handleAnswerChange}
                     onKeyPress={handleKeyPress}
                     disabled={isAnswerChecked}
-                    className="text-center font-bold mt-1 mb-1"
+                    className="text-center font-bold mt-1 mb-1 w-20"
                   />
                   <Button
                     radius="full"
                     variant="shadow"
                     className="bg-gradient-to-tr from-green-500 to-gray-500 text-white shadow-lg"
-                    onClick={handleCheckAnswer}
+                    onPress={handleCheckAnswer}
                     disabled={isAnswerChecked}
                   >
                     Verificar

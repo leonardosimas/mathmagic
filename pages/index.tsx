@@ -27,7 +27,7 @@ export default function IndexPage() {
                 radius="full"
                 variant="shadow"
                 className="bg-gradient-to-tr from-green-500 to-gray-500 text-white shadow-lg text-2xl w-12 h-12"
-                onClick={() => handleGameClick("/SomarPage")}
+                onPress={() => handleGameClick("/SomarPage")}
               >
                 <Plus size={32} />
               </Button>
@@ -35,7 +35,7 @@ export default function IndexPage() {
                 radius="full"
                 variant="shadow"
                 className="bg-gradient-to-tr from-green-500 to-gray-500 text-white shadow-lg text-2xl w-12 h-12"
-                onClick={() => handleGameClick("/DiminuirPage")}
+                onPress={() => handleGameClick("/DiminuirPage")}
               >
                 <Minus size={32} />
               </Button>
@@ -43,7 +43,7 @@ export default function IndexPage() {
                 radius="full"
                 variant="shadow"
                 className="bg-gradient-to-tr from-green-500 to-gray-500 text-white shadow-lg text-2xl w-12 h-12"
-                onClick={() => handleGameClick("/MultiplicarPage")}
+                onPress={() => handleGameClick("/MultiplicarPage")}
               >
                 <X size={32} />
               </Button>
@@ -51,7 +51,7 @@ export default function IndexPage() {
                 radius="full"
                 variant="shadow"
                 className="bg-gradient-to-tr from-green-500 to-gray-500 text-white shadow-lg text-2xl w-12 h-12"
-                onClick={() => handleGameClick("/DividirPage")}
+                onPress={() => handleGameClick("/DividirPage")}
               >
                 <Divide size={32} />
               </Button>
