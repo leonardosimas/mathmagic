@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import DefaultLayout from "@/layouts/default";
-import { Button, Card, CardBody, CardHeader, Divider, Input } from "@nextui-org/react";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Divider,
+  Input,
+} from "@nextui-org/react";
 
-const generateRandomNumber = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const generateRandomNumber = (min: number, max: number) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
 
 const generateQuestions = () =>
   Array.from({ length: 10 }, () => ({
@@ -30,11 +38,18 @@ export default function MultiplicarPage() {
 
     if (answer === correctAnswer) {
       setCorrectCount((prevCount) => prevCount + 1);
+      // Espaço para criar animação de acerto e de erro
     } else {
       setErrorCount((prevCount) => prevCount + 1);
+      // Espaço para criar animação de acerto e de erro
     }
 
     setIsAnswerChecked(true);
+
+    // Atualizar a pergunta independentemente da resposta estar certa ou errada
+    if (currentQuestion < questions.length - 1) {
+      handleNextQuestion();
+    }
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -78,7 +93,9 @@ export default function MultiplicarPage() {
             <div className="flex flex-col items-center font-bold gap-2">
               {isGameOver ? (
                 <>
-                  <p>Fim do Jogo. Acertos: {correctCount}, Erros: {errorCount}</p>
+                  <p>
+                    Fim do Jogo. Acertos: {correctCount}, Erros: {errorCount}
+                  </p>
                   <Button
                     radius="full"
                     variant="shadow"
@@ -90,9 +107,7 @@ export default function MultiplicarPage() {
                 </>
               ) : (
                 <>
-                  <p>
-                    Questão {currentQuestion + 1}
-                  </p>
+                  <p>Questão {currentQuestion + 1}</p>
                   <p>
                     Quanto é {questions[currentQuestion].num1} x{" "}
                     {questions[currentQuestion].num2}?
@@ -115,14 +130,6 @@ export default function MultiplicarPage() {
                   >
                     Verificar
                   </Button>
-                  {isAnswerChecked && (
-                    <p className="text-center">
-                      {userAnswer.trim() ===
-                      (questions[currentQuestion].num1 * questions[currentQuestion].num2).toString()
-                        ? "Resposta Correta!"
-                        : "Resposta Errada!"}
-                    </p>
-                  )}
                   <p>Acertos: {correctCount}</p>
                   <p>Erros: {errorCount}</p>
                 </>
