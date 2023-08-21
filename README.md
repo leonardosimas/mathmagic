@@ -11,6 +11,7 @@
 - [TypeScript](https://www.typescriptlang.org)
 - [Framer Motion](https://www.framer.com/motion)
 - [next-themes](https://github.com/pacocoursey/next-themes)
+- [Phospor Icons](https://phosphoricons.com/)
 
 ### **Funcionalidade**
 
