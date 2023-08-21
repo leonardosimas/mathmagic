@@ -37,11 +37,18 @@ export default function SomarPage() {
 
     if (answer === correctAnswer) {
       setCorrectCount((prevCount) => prevCount + 1);
+      // Espaço para criar animação de acerto e de erro
     } else {
       setErrorCount((prevCount) => prevCount + 1);
+      // Espaço para criar animação de acerto e de erro
     }
 
     setIsAnswerChecked(true);
+
+    // Atualizar a pergunta independentemente da resposta estar certa ou errada
+    if (currentQuestion < questions.length - 1) {
+      handleNextQuestion();
+    }
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -85,7 +92,9 @@ export default function SomarPage() {
             <div className="flex flex-col items-center font-bold gap-2">
               {isGameOver ? (
                 <>
-                  <p>Fim do Jogo. Acertos: {correctCount}, Erros: {errorCount}</p>
+                  <p>
+                    Fim do Jogo. Acertos: {correctCount}, Erros: {errorCount}
+                  </p>
                   <Button
                     radius="full"
                     variant="shadow"
@@ -97,9 +106,7 @@ export default function SomarPage() {
                 </>
               ) : (
                 <>
-                  <p>
-                    Questão {currentQuestion + 1}
-                  </p>
+                  <p>Questão {currentQuestion + 1}</p>
                   <p>
                     Quanto é {questions[currentQuestion].num1} +{" "}
                     {questions[currentQuestion].num2}?
@@ -122,15 +129,6 @@ export default function SomarPage() {
                   >
                     Verificar
                   </Button>
-                  {isAnswerChecked && (
-                    <p className="text-center">
-                      {userAnswer.trim() ===
-                      (questions[currentQuestion].num1 +
-                        questions[currentQuestion].num2).toString()
-                        ? "Resposta Correta!"
-                        : "Resposta Errada!"}
-                    </p>
-                  )}
                   <p>Acertos: {correctCount}</p>
                   <p>Erros: {errorCount}</p>
                 </>

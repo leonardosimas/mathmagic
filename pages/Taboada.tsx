@@ -25,6 +25,9 @@ const Taboada: React.FC = () => {
     return tabuada;
   };
 
+  const isMobile = window.innerWidth <= 768; // Ajuste o valor de 768 conforme necessário
+  const tabuadaRows = isMobile ? 3 : 6;
+
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 bg-zinc-400">
@@ -32,7 +35,7 @@ const Taboada: React.FC = () => {
           <h1 className="text-2xl font-bold mb-4 text-center">
             Tabuada de 1 a 12
           </h1>
-          <div className="grid grid-cols-3 gap-4">
+          <div className={`grid grid-cols-${tabuadaRows} gap-4`}>
             {Array.from({ length: 12 }, (_, index) => index + 1).map(
               (numero) => (
                 <Table

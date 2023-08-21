@@ -33,23 +33,27 @@ export default function DiminuirPage() {
   const handleCheckAnswer = () => {
     const answer = userAnswer.trim();
     const { num1, num2 } = questions[currentQuestion];
-    
+
     // Check criado para determinar qual número é maior
     const maxNumber = Math.max(num1, num2);
     const minNumber = Math.min(num1, num2);
-  
+
     const correctAnswer = (maxNumber - minNumber).toString();
-  
-    console.log("Resposta Correta:", correctAnswer); // Mostrar resposta correta
-    console.log("Resposta Recebida:", answer); // Mostrar resposta recebida pelo usuário
-  
+
     if (answer === correctAnswer) {
       setCorrectCount((prevCount) => prevCount + 1);
+      // Espaço para criar animação de acerto e de erro
     } else {
       setErrorCount((prevCount) => prevCount + 1);
+      // Espaço para criar animação de acerto e de erro
     }
-  
+
     setIsAnswerChecked(true);
+
+    // Atualizar a pergunta independentemente da resposta estar certa ou errada
+    if (currentQuestion < questions.length - 1) {
+      handleNextQuestion();
+    }
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -139,23 +143,6 @@ export default function DiminuirPage() {
                   >
                     Verificar
                   </Button>
-                  {isAnswerChecked && (
-                    <p className="text-center">
-                      {userAnswer.trim() ===
-                      (
-                        Math.max(
-                          questions[currentQuestion].num1,
-                          questions[currentQuestion].num2
-                        ) -
-                        Math.min(
-                          questions[currentQuestion].num1,
-                          questions[currentQuestion].num2
-                        )
-                      ).toString()
-                        ? "Resposta Correta!"
-                        : "Resposta Errada!"}
-                    </p>
-                  )}
                   <p>Acertos: {correctCount}</p>
                   <p>Erros: {errorCount}</p>
                 </>

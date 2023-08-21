@@ -12,7 +12,7 @@ import {
 const generateRandomNumber = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
-  const generateQuestions = () =>
+const generateQuestions = () =>
   Array.from({ length: 10 }, () => {
     let num2 = generateRandomNumber(1, 12);
     const maxDividend = num2 * 12;
@@ -20,7 +20,6 @@ const generateRandomNumber = (min: number, max: number) =>
     num1 = num1 - (num1 % num2);
     return { num1, num2 };
   });
-
 
 export default function DividirPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -47,11 +46,18 @@ export default function DividirPage() {
 
     if (answer === correctAnswer) {
       setCorrectCount((prevCount) => prevCount + 1);
+      // Espaço para criar animação de acerto e de erro
     } else {
       setErrorCount((prevCount) => prevCount + 1);
+      // Espaço para criar animação de acerto e de erro
     }
 
     setIsAnswerChecked(true);
+
+    // Atualizar a pergunta independentemente da resposta estar certa ou errada
+    if (currentQuestion < questions.length - 1) {
+      handleNextQuestion();
+    }
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -132,17 +138,6 @@ export default function DividirPage() {
                   >
                     Verificar
                   </Button>
-                  {isAnswerChecked && (
-                    <p className="text-center">
-                      {userAnswer.trim() ===
-                      (
-                        questions[currentQuestion].num1 /
-                        questions[currentQuestion].num2
-                      ).toString()
-                        ? "Resposta Correta!"
-                        : "Resposta Errada!"}
-                    </p>
-                  )}
                   <p>Acertos: {correctCount}</p>
                   <p>Erros: {errorCount}</p>
                 </>
