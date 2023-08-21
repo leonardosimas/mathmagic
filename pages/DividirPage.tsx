@@ -12,14 +12,15 @@ import {
 const generateRandomNumber = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
-const generateQuestions = () =>
+  const generateQuestions = () =>
   Array.from({ length: 10 }, () => {
-    const num2 = generateRandomNumber(1, 12);
+    let num2 = generateRandomNumber(1, 12);
     const maxDividend = num2 * 12;
-    let num1 = generateRandomNumber(1, maxDividend);
+    let num1 = generateRandomNumber(num2, maxDividend); // Certifique-se de que num1 seja pelo menos num2
     num1 = num1 - (num1 % num2);
     return { num1, num2 };
   });
+
 
 export default function DividirPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -38,6 +39,11 @@ export default function DividirPage() {
     const answer = userAnswer.trim();
     const { num1, num2 } = questions[currentQuestion];
     const correctAnswer = (num1 / num2).toString();
+
+    if (num2 === 0) {
+      console.error("Erro: Divisão por zero!");
+      return;
+    }
 
     if (answer === correctAnswer) {
       setCorrectCount((prevCount) => prevCount + 1);
@@ -114,7 +120,7 @@ export default function DividirPage() {
                     onChange={handleAnswerChange}
                     onKeyPress={handleKeyPress}
                     disabled={isAnswerChecked}
-                    className="text-center font-bold mt-1 mb-1"
+                    className="text-center font-bold mt-1 mb-1 w-20"
                   />
                   <Button
                     radius="full"

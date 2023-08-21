@@ -33,14 +33,22 @@ export default function DiminuirPage() {
   const handleCheckAnswer = () => {
     const answer = userAnswer.trim();
     const { num1, num2 } = questions[currentQuestion];
-    const correctAnswer = (num1 - num2).toString();
-
+    
+    // Check criado para determinar qual número é maior
+    const maxNumber = Math.max(num1, num2);
+    const minNumber = Math.min(num1, num2);
+  
+    const correctAnswer = (maxNumber - minNumber).toString();
+  
+    console.log("Resposta Correta:", correctAnswer); // Mostrar resposta correta
+    console.log("Resposta Recebida:", answer); // Mostrar resposta recebida pelo usuário
+  
     if (answer === correctAnswer) {
       setCorrectCount((prevCount) => prevCount + 1);
     } else {
       setErrorCount((prevCount) => prevCount + 1);
     }
-
+  
     setIsAnswerChecked(true);
   };
 
@@ -92,7 +100,7 @@ export default function DiminuirPage() {
                     radius="full"
                     variant="shadow"
                     className="bg-gradient-to-tr from-blue-500 to-gray-500 text-white shadow-lg"
-                    onClick={handleRestartGame}
+                    onPress={handleRestartGame}
                   >
                     Reiniciar Jogo
                   </Button>
@@ -119,13 +127,13 @@ export default function DiminuirPage() {
                     onChange={handleAnswerChange}
                     onKeyPress={handleKeyPress}
                     disabled={isAnswerChecked}
-                    className="text-center mt-1 mb-1"
+                    className="text-center mt-1 mb-1 w-20 "
                   />
                   <Button
                     radius="full"
                     variant="shadow"
                     className="bg-gradient-to-tr from-green-500 to-gray-500 text-white shadow-lg"
-                    onClick={handleCheckAnswer}
+                    onPress={handleCheckAnswer}
                     disabled={isAnswerChecked}
                   >
                     Verificar
