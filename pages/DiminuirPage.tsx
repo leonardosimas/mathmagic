@@ -138,7 +138,6 @@ export default function DiminuirPage() {
                     variant="shadow"
                     className="bg-gradient-to-tr from-green-500 to-gray-500 text-white shadow-lg"
                     onPress={handleCheckAnswer}
-                    onTouchEnd={handleCheckAnswer}
                     disabled={isAnswerChecked}
                   >
                     Verificar
