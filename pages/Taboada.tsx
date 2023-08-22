@@ -8,7 +8,8 @@ import {
   TableRow,
   TableCell,
 } from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const Taboada: React.FC = () => {
   const generateTabuada = (numero: number) => {
@@ -23,12 +24,7 @@ const Taboada: React.FC = () => {
     return tabuada;
   };
 
-  const [isMobile, setIsMobile] = useState(false);
-  const tabuadaRows = isMobile ? 3 : 6;
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth <= 768); // Ajuste o valor de 768 conforme necessário
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <DefaultLayout>
@@ -37,7 +33,7 @@ const Taboada: React.FC = () => {
           <h1 className="text-2xl font-bold mb-4 text-center">
             Tabuada de 1 a 12
           </h1>
-          <div className={`grid grid-cols-${tabuadaRows} gap-4`}>
+          <div className={`grid ${isMobile ? "grid-cols-3" : "grid-cols-6"} gap-4`}>
             {Array.from({ length: 12 }, (_, index) => index + 1).map(
               (numero) => (
                 <Table
